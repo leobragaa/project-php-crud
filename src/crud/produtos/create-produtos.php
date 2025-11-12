@@ -3,9 +3,10 @@
 
     if(!isset($_SESSION['user_id'])){
         header("Location:../pages/login/login-page.php");
+        exit;
     }
 
-    require_once '../config/configMysql.php';
+    require_once '../../config/configMysql.php';
 
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $nome = trim($_POST['nome']);
@@ -14,9 +15,14 @@
         $imagem = trim($_POST['imagem']);
         $descricao = trim($_POST['descricao']);
 
-        $stmt = $pdo -> prepare ();
-        $stmt -> execute ([$nome, $preco, $quantidade, $imagem, $descricao]);
-        header("Location:../crud/produtos/read-produtos.php");
-        exit;
+        $sql = "INSERT INTO produtos (nome, preco, quantidade, imagem, descricao) VALUES (?, ?, ?, ?, ?)";
+        try{
+            $stmt = $pdo -> prepare ();
+            $stmt -> execute ([$nome, $preco, $quantidade, $imagem, $descricao]);
+            header("Location:../../pages/produtos/listar-produtos.php");
+            exit;
+        }catch(PDOException $e){
+            die("Erro ao Cadastrar Produto" -> $e -> getMessage());
+        }
     }
 ?>
