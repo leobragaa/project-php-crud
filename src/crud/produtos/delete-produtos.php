@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
     if(!isset($_SESSION['user_id'])){
         header("Location:../../pages/login/login-page.php");
         exit;
@@ -14,7 +14,7 @@
             $stmt = $pdo -> prepare ("DELETE FROM produtos WHERE id = ?");
             $stmt -> execute ([$id]);
         }catch(PDOException $e){
-            die("Erro ao Excluir Produto" . $e->getMessage());
+            die("Erro ao Excluir Produto" . $e-> getMessage());
         }
 
     }
