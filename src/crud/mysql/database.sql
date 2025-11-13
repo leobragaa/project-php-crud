@@ -12,7 +12,7 @@ create table if not exists produtos(
     id int auto_increment primary key,
     nome varchar(100) not null,
     preco decimal(10,2) not null,
-    quantidade int(10,2) not null,
-    imagem varchar(255) not null,
+    quantidade int not null,
+    imagem text not null,
     descricao text
 );

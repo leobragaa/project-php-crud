@@ -1,6 +1,7 @@
 <?php
-    require_once '../../crud/config/configMysql.php';
     session_start();
+    require_once '../../crud/config/configMysql.php';
+    
 
     $erro = "";
 
@@ -38,7 +39,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link rel="stylesheet" href="../../style.css?v=10">
+        <link rel="stylesheet" href="../../style.css">
     </head>
 
     <body class="login-page">

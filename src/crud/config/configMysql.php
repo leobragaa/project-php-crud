@@ -2,7 +2,7 @@
 
     $host = 'localhost';
     $user = 'root';
-    $password = 'L1oN@rdoBr@gaLMZl79';
+    $password = 'L1oN@rdol78';
     $dbname = 'project_produtos';
 
     try{

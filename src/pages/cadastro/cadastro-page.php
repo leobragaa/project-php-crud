@@ -1,6 +1,6 @@
 <?php
-    require_once'../../crud/config/configMysql.php';
     session_start();
+    require_once'../../crud/config/configMysql.php';
 
     $erro = "";
     if(isset($_SESSION['user_id'])){
@@ -48,7 +48,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Cadastro</title>
-        <link rel="stylesheet" href="../../style.css?v=10">
+        <link rel="stylesheet" href="../../style.css">
     </head>
 
     <body class="login-page">

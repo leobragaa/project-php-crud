@@ -12,7 +12,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Dashboard</title>
-        <link rel="stylesheet" href="../../style.css?v=10">
+        <link rel="stylesheet" href="../../style.css">
     </head>
     <body class="dashboard-page">
         <?php include '../layout/drawer.php'?>
@@ -26,7 +26,7 @@
                     <div class="dashboard-card-icon">
                         <span>📄</span>
                     </div>
-                    <h3>Listagem de Produtos Cadastrados</h3>
+                    <h3>Listagem de Produtos</h3>
                     <span class="dashboard-card-btn">LISTAR</span>
                 </a>
 

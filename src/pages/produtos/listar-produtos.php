@@ -32,12 +32,12 @@
                                <img 
                                    src="<?php echo $produto['imagem'] ?? 'https://via.placeholder.com/100'; ?>"
                                    alt="Product Image"
-                                   onerror="this.src='https://via.placeholder.com/100';"
+                                   onerror="this.src='https:/via.placeholder.com/100';"
                                >
                             </div>
                             <div class="product-card-info">
                                 <p><strong>Nome:</strong> <?php echo $produto['nome']; ?> </p>
-                                <p><strong>Preco:</strong> <?php echo number_format($produto['preco'],2,',','.'); ?>R$</p>
+                                <p><strong>Preco: </strong> R$ <?php echo number_format($produto['preco'],2,',','.'); ?></p>
                                 <p><strong>Quantidade:</strong> <?php echo $produto['quantidade']; ?> em estoque </p>
                                 <p><strong>Descricao:</strong> <?php echo $produto['descricao']; ?></p>
                             </div>
@@ -51,6 +51,7 @@
                                     onclick = "return confirm('Confirmar a Exlusão ?');">
                                     Deletar 
                                 </a>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 <?php endif; ?>    
