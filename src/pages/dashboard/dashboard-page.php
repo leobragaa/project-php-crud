@@ -12,29 +12,31 @@
     <head>
         <meta charset="UTF-8">
         <title>Dashboard</title>
-        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="../../style.css?v=10">
     </head>
-    <body>
+    <body class="dashboard-page">
         <?php include '../layout/drawer.php'?>
-        <div>
+        <div class="main-content">
+
             <h1>Gerenciamento de Produtos</h1>
-            <p> Painel de controle </p>
-            <div class="conatiner">
-                <div>
-                    <button>
-                        <label for=""> listar </label>
-                    </button>
-                </div>
-                <div>
-                    <button>
-                        <label for=""> cadastrar </label>
-                    </button>
-                </div>
-                <div>
-                    <button>
-                        <label for=""> editar </label>
-                    </button>
-                </div>
+
+            <div class="dashboard-cards">
+
+                <a href="../produtos/listar-produtos.php" class="dashboard-card">
+                    <div class="dashboard-card-icon">
+                        <span>📄</span>
+                    </div>
+                    <h3>Listagem de Produtos Cadastrados</h3>
+                    <span class="dashboard-card-btn">LISTAR</span>
+                </a>
+
+                <a href="../produtos/cadastrar-produtos.php" class="dashboard-card">
+                    <div class="dashboard-card-icon">
+                        <span>➕</span>
+                    </div>
+                    <h3>Cadastrar Novos Produtos</h3>
+                    <span class="dashboard-card-btn">CADASTRAR</span>
+                </a>
             </div>
         </div>
     </body>

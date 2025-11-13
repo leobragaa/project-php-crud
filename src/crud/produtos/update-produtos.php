@@ -1,11 +1,12 @@
 <?php
     session_start();
+
     if(!isset($_SESSION['user_id'])){
         header("Location:../../pages/login/login-page.php");
         exit;
     }
 
-    require_once '../../config/configMysql.php';
+    require_once '../config/configMysql.php';
     
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
@@ -17,24 +18,25 @@
         $descricao = $_POST['descricao'];
         
         if(!$id){
-            die("ID não foi fornecido do produto");
+            die("ID não foi Encontrado");
         }
 
         try{
 
             $sql = "UPDATE produtos SET nome = ?, preco = ?, quantidade = ?, imagem = ?, descricao = ? WHERE id = ?";
-            $stmt = $pdo -> prepare ($sql);
+            $stmt = $pdo->prepare($sql);
             $stmt -> execute ([$nome, $preco, $quantidade, $imagem, $descricao, $id]);
+
             header("Location:../../pages/produtos/listar-produtos.php");
 
             exit;    
-        }catch(PDOException){
+        }catch(PDOException $e){
             die("Erro ao Atualizar" . $e->getMessage());
         }
         
         
     }else{
-        header("Location:../crud/produtos/read-produtos.php");
+        header("Location:../../pages/produtos/listar-produtos.php");
         exit;
     }
 ?>

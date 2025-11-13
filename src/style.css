@@ -1,15 +1,24 @@
-/* --- GERAL --- */
+/* --- ESTILOS GLOBAIS (Se aplicam a tudo) --- */
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    background-color: #f5f5f7; /* Um cinza bem claro, como o do exemplo */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+    /* Removemos o 'display: flex' daqui */
+}
+
+/* --- 1. PÁGINAS DE LOGIN E CADASTRO --- */
+
+/* Aplicamos os estilos de centralização SÓ no body que tiver a classe 'login-page' */
+body.login-page {
+    background-color: #f5f5f7;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
 }
 
-.container {
+.login-page .container {
     background-color: #ffffff;
     padding: 40px 30px;
     border-radius: 12px;
@@ -19,9 +28,8 @@ body {
     text-align: center;
 }
 
-/* --- CABEÇALHO DO FORMULÁRIO --- */
-h2 {
-    color: #1d1d1f; /* Preto suave */
+.login-page h2 {
+    color: #1d1d1f;
     font-size: 24px;
     font-weight: 600;
     margin-top: 0;
@@ -29,45 +37,43 @@ h2 {
     letter-spacing: 1px;
 }
 
-/* --- CAMPOS DE INPUT --- */
-.input-group {
+.login-page .input-group {
     margin-bottom: 20px;
     text-align: left;
 }
 
-.input-group label {
+.login-page .input-group label {
     display: block;
     margin-bottom: 8px;
-    color: #86868b; /* Cinza para o label */
+    color: #86868b;
     font-size: 14px;
     font-weight: 500;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="password"] {
+.login-page input[type="text"],
+.login-page input[type="email"],
+.login-page input[type="password"] {
     width: 100%;
     padding: 15px;
-    border: 1px solid #d2d2d7; /* Borda cinza clara */
+    border: 1px solid #d2d2d7;
     border-radius: 8px;
     font-size: 16px;
-    box-sizing: border-box; /* Essencial para o padding não quebrar o layout */
+    box-sizing: border-box;
     transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
+.login-page input[type="text"]:focus,
+.login-page input[type="email"]:focus,
+.login-page input[type="password"]:focus {
     outline: none;
-    border-color: #0071e3; /* Azul ao focar */
+    border-color: #0071e3;
     box-shadow: 0 0 0 2px rgba(0, 113, 227, 0.2);
 }
 
-/* --- BOTÕES --- */
-button[type="submit"] {
+.login-page button[type="submit"] {
     width: 100%;
     padding: 15px;
-    background-color: #0071e3; /* Azul principal */
+    background-color: #0071e3;
     color: #fff;
     border: none;
     border-radius: 8px;
@@ -75,37 +81,34 @@ button[type="submit"] {
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s;
-    margin-top: 10px; /* Espaço acima do botão */
+    margin-top: 10px;
 }
 
-button[type="submit"]:hover {
-    background-color: #0077ed; /* Azul um pouco mais claro no hover */
+.login-page button[type="submit"]:hover {
+    background-color: #0077ed;
 }
 
-/* --- LINKS --- */
-.form-link {
+.login-page .form-link {
     margin-top: 25px;
     font-size: 14px;
 }
 
-.form-link a {
+.login-page .form-link a {
     color: #0071e3;
     text-decoration: none;
     font-weight: 500;
-    margin-top: 25px;
+    margin-top: 25px; /* Cuidado, 'margin-top' não se aplica bem a <a> (inline) */
 }
 
-.form-link a:hover {
+.login-page .form-link a:hover {
     text-decoration: underline;
 }
 
-/* Classe para o texto "Já tem conta?" */
-.form-link .text-secondary {
-    color: #6e6e73; /* Cinza para texto secundário */
+.login-page .form-link .text-secondary {
+    color: #6e6e73;
 }
 
-/* Classe de erro para mensagens */
-.erro {
+.login-page .erro {
     color: #d93025;
     background-color: #f8d7da;
     border: 1px solid #f5c6cb;
@@ -113,4 +116,316 @@ button[type="submit"]:hover {
     border-radius: 8px;
     margin-bottom: 20px;
     text-align: center;
+}
+
+
+/* --- 2. PÁGINAS DO DASHBOARD (Layout Principal) --- */
+
+/* Estilos para o body de páginas internas */
+body.dashboard-page {
+    background-color: #f5f5f7; /* Fundo cinza claro */
+}
+
+/* O CSS DO DRAWER QUE ESTAVA FALTANDO */
+.drawer {
+    width: 240px; 
+    background-color: #2d2d2d; 
+    color: #f5f5f5;
+    position: fixed; 
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px;
+    box-sizing: border-box; 
+    display: flex;
+    flex-direction: column; 
+}
+
+.drawer .drawer-header {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+}
+
+.drawer-nav {
+    flex-grow: 1; /* Ocupa o espaço, empurrando o logout para baixo */
+}
+
+.drawer-nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 12px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.drawer-nav a:hover {
+    background-color: #444;
+    border-color: #555;
+}
+
+.drawer a.logout-btn {
+    background-color: #4f4f4f;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 15px 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.drawer a.logout-btn:hover {
+    background-color: #d93025; /* Vermelho no hover */
+}
+
+/* Conteúdo principal (à direita do drawer) */
+.main-content {
+    margin-left: 240px; /* Mesma largura do drawer */
+    padding: 30px;
+    min-height: 100vh; 
+    box-sizing: border-box;
+}
+
+.main-content h1 {
+    color: #333;
+    font-size: 28px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+/* CARDS DO DASHBOARD */
+.dashboard-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+}
+
+.dashboard-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    padding: 25px;
+    flex-basis: 280px;
+    flex-grow: 1;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.dashboard-card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #0071e3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.dashboard-card-icon span {
+     font-size: 24px;
+     color: #fff;
+     font-weight: bold;
+}
+
+.dashboard-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.dashboard-card p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.dashboard-card-btn {
+    display: inline-block;
+    background-color: #0071e3;
+    color: #424242;
+    padding: 8px 18px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* --- 3. PÁGINAS DE PRODUTOS (Listar, Cadastrar, Editar) --- */
+
+/* Estilo para a lista de produtos (container) */
+.product-list-container{
+    margin: 0 auto; /* Centraliza a lista */
+    display: flex;
+    flex-direction: column !important;
+    gap: 20px; /* Espaço entre os cards */
+}
+
+/* Estilo individual para cada card de produto */
+.product-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    gap: 20px; /* Espaço entre a imagem e o conteúdo */
+}
+
+.product-card-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0; /* Impede que a imagem encolha */
+    background-color: #f5f5f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Mostra a imagem inteira */
+}
+
+.product-card-info {
+    flex-grow: 1;
+}
+
+.product-card-info p {
+    margin: 0 0 8px 0;
+    color: #333;
+    font-size: 14px;
+}
+/* O "NOME PRODUTO", "VALOR" etc. */
+.product-card-info p strong {
+    display: block;
+    color: #86868b;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.product-card-actions {
+    display: flex;
+    flex-direction: column; /* Botões um em cima do outro */
+    gap: 8px;
+}
+
+.product-card-actions .btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.product-card-actions .btn.edit {
+    background-color: #0071e3;
+    color: #fff;
+}
+
+.product-card-actions .btn.delete {
+    background-color: #d93025;
+    color: #fff;
+}
+
+/* Botão de "Adicionar Novo" no topo da lista */
+.btn-add-new {
+    display: inline-block;
+    margin-bottom: 25px;
+    padding: 12px 20px;
+    background-color: #0071e3;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+/* Estilo para Formulários (Cadastrar/Editar) */
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-container .input-group {
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #86868b;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.form-container input[type="text"],
+.form-container input[type="number"],
+.form-container textarea {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Essencial */
+}
+
+.form-container textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-container .form-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.form-container .btn-submit {
+    padding: 15px 25px;
+    background-color: #0071e3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.form-container .btn-cancel {
+    padding: 15px 25px;
+    background-color: #f5f5f7;
+    color: #333;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
 }

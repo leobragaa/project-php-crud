@@ -1,11 +1,10 @@
 <?php
-    session_start();
 
     if(!isset($_SESSION['user_id'])){
         header("Location:../../pages/login/login-page.php");
         exit;
     }
-    require_once '../../config/configMysql.php';
+    require_once '../../crud/config/configMysql.php';
 
     try{
         $stmt = $pdo->query("SELECT * FROM produtos");

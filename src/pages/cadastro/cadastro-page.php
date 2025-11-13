@@ -48,10 +48,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Cadastro</title>
-        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="../../style.css?v=10">
     </head>
 
-    <body>
+    <body class="login-page">
         <div class="container">
             
             <h2>Cadastro</h2>

@@ -11,7 +11,7 @@
     
     if($_SERVER['REQUEST_METHOD'] === 'POST'){
         $email = trim($_POST['email']);
-        $senha_usuario = password_hash($_POST['senha'], PASSWORD_DEFAULT);
+        $senha_usuario = $_POST['senha'];
 
         if(empty($email) || empty($senha_usuario)){
             $erro = "Email e Senha Obrigatorios!";
@@ -38,10 +38,10 @@
     <head>
         <meta charset="UTF-8">
         <title>Login</title>
-        <link rel="stylesheet" href="../../style.css">
+        <link rel="stylesheet" href="../../style.css?v=10">
     </head>
 
-    <body>
+    <body class="login-page">
         <div class="container">    
 
             <h2>Login</h2>
